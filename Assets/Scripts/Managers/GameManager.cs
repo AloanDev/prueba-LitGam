@@ -38,10 +38,10 @@ namespace Managers
 
         private void Init()
         {
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject); //The game manager is not destroyed
         }
 
-        public void LoadDataAnimation()
+        public void LoadDataAnimation() //Loads the selected animation and saves it as an integer.
         {
             _playerDancing = GameObject.FindWithTag("PlayerDancing").GetComponent<Animator>();
             int numAnimation = PlayerPrefs.GetInt("Animation");

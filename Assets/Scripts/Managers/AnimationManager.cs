@@ -26,12 +26,12 @@ namespace Managers
                 button.GetComponent<Toggle>().onValueChanged.AddListener(SelectAnimation);
             }
 
-            buttonSelect.onClick.AddListener(StartGame);
+            buttonSelect.onClick.AddListener(StartGame); //Stand button that leads to the gameplay screen.
         }
 
-        private void SelectAnimation(bool active)
+        private void SelectAnimation(bool active) //Select animation
         {
-            for (var i = 0; i < buttons.Length; i++)
+            for (var i = 0; i < buttons.Length; i++) //List of buttons for animations
             {
                 if (!buttons[i].GetComponent<Toggle>().isOn) continue;
                 anim.SetInteger(Animation, i);
@@ -41,7 +41,7 @@ namespace Managers
 
         private void StartGame()
         {
-            SceneManager.LoadScene(nameScene);
+            SceneManager.LoadScene(nameScene); //Loads the gameplay scene because I have set it in the object component in the inspector.
         }
 
         #endregion

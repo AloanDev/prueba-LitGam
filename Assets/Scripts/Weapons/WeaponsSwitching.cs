@@ -9,7 +9,7 @@ namespace Weapons
 
         void Start()
         {
-            foreach (var t in listWeapons.weapon)
+            foreach (var t in listWeapons.weapon) //Instance the weapons of the weapons list scriptable object
             {
                 var weapon = Instantiate(t.prefabWeapon, transform.position, transform.rotation);
                 weapon.transform.parent = transform;
@@ -22,7 +22,7 @@ namespace Weapons
         {
             int previousSelectedWeapon = listWeapons.selectedWeapon;
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0) //If you roll the mouse upwards, it changes weapon and vice-versa.
             {
                 if (listWeapons.selectedWeapon >= transform.childCount - 1)
                     listWeapons.selectedWeapon = 0;
@@ -38,16 +38,16 @@ namespace Weapons
                     listWeapons.selectedWeapon--;
             }
 
-            if (previousSelectedWeapon != listWeapons.selectedWeapon)
+            if (previousSelectedWeapon != listWeapons.selectedWeapon) //If the number is different from the list of weapons, do the SelectWeapon() function. 
             {
                 SelectWeapon();
             }
         }
 
-        private void SelectWeapon()
+        private void SelectWeapon()//
         {
             int i = 0;
-            foreach (Transform weapon in transform)
+            foreach (Transform weapon in transform) //Scroll through the list of instantiated weapons based on the list of the scriptable object of weapons
             {
                 weapon.gameObject.SetActive(i == listWeapons.selectedWeapon);
 

@@ -13,7 +13,7 @@ namespace Weapons
 
         private void Update()
         {
-            if (!GamePlayManager.Instance.isPaused)
+            if (!GamePlayManager.Instance.isPaused) //If not paused, fire
                 if (Input.GetButtonDown("Fire1"))
                 {
                     Shoot();
